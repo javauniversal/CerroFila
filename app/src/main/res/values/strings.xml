@@ -3,4 +3,12 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="login_app">Ingresar Aplicación</string>
+
+    <string name="login_usuario">El usuario no puede estar vacío</string>
+    <string name="login_password">El password no puede estar vacío</string>
+
+
+    <string name="url_base">http://172.20.32.75/admin_cero_fila/services/</string>
 </resources>

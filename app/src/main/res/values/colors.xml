@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_A700">#D50000</color>
-    <color name="color_A400">#FF174</color>
-    <color name="color_A200">#FF5252</color>
-    <color name="color_A100">#FF8A80</color>
-    <color name="color_900">#B71C1C</color>
-    <color name="color_800">#C62828</color>
-    <color name="color_700">#D32F2F</color>
-    <color name="color_600">#E53935</color>
-    <color name="color_500">#F44336</color>
-    <color name="color_400">#EF5350</color>
-    <color name="color_300">#E57373</color>
-    <color name="color_200">#EF9A9A</color>
-    <color name="color_100">#FFCDD2</color>
-    <color name="color_50">#FFEBEE</color>
+    <color name="color_1">#D50000</color>
+    <color name="color_3">#FF5252</color>
+    <color name="color_4">#FF8A80</color>
+    <color name="color_5">#B71C1C</color>
+    <color name="color_6">#C62828</color>
+    <color name="color_7">#D32F2F</color>
+    <color name="color_8">#E53935</color>
+    <color name="color_9">#F44336</color>
+    <color name="color_10">#EF5350</color>
+    <color name="color_11">#E57373</color>
+    <color name="color_12">#EF9A9A</color>
+    <color name="color_13">#FFCDD2</color>
+    <color name="color_14">#FFEBEE</color>
+
+    <color name="color_azul_corporativo">#00457e</color>
+    <color name="color_azul_fin">#2F85CB</color>
+
+    <color name="color_rojo_fin">#F14848</color>
+
 </resources>
