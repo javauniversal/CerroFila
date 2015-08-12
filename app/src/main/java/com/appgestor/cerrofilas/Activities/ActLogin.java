@@ -1,10 +1,10 @@
 package com.appgestor.cerrofilas.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -16,16 +16,18 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.appgestor.cerrofilas.Entities.Estudiante;
 import com.appgestor.cerrofilas.R;
+import com.appgestor.cerrofilas.dark.Accounts;
 import com.gc.materialdesign.views.ButtonRectangle;
 import com.google.gson.Gson;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ActLogin extends AppCompatActivity {
 
-    private EditText usuario;
-    private EditText password;
+    private MaterialEditText usuario;
+    private MaterialEditText password;
     private Estudiante estudiante;
 
     @Override
@@ -36,28 +38,23 @@ public class ActLogin extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
 
-        usuario = (EditText) findViewById(R.id.EditUsuario);
-        password = (EditText) findViewById(R.id.EditPassword);
+        usuario = (MaterialEditText) findViewById(R.id.EditUsuario);
+        password = (MaterialEditText) findViewById(R.id.EditPassword);
 
         ButtonRectangle button = (ButtonRectangle) findViewById(R.id.btnIngresar);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isValidNumber(usuario.getText().toString())){
+                if (isValidNumber(usuario.getText().toString())) {
                     usuario.setError(getResources().getString(R.string.login_usuario));
                     usuario.setFocusableInTouchMode(true);
                     usuario.requestFocus();
-                }else if(isValidNumber(password.getText().toString())) {
+                } else if (isValidNumber(password.getText().toString())) {
                     password.setError(getResources().getString(R.string.login_password));
                     password.setFocusableInTouchMode(true);
                     password.requestFocus();
-                }else{
-
+                } else {
                     ValidatorLogin();
-
-                    //startActivity(new Intent(, FragmentHome.class));
-                    //overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                    //finish();
                 }
 
             }
@@ -73,7 +70,13 @@ public class ActLogin extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         // response
-                        parseJSON(response);
+                        if (!parseJSON(response)){
+                            Toast.makeText(ActLogin.this, "El usuario no esta registrado.", Toast.LENGTH_LONG).show();
+                        }else{
+                            startActivity(new Intent(ActLogin.this, Accounts.class));
+                            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                            finish();
+                        }
                     }
                 },
                 new Response.ErrorListener(){
@@ -96,16 +99,21 @@ public class ActLogin extends AppCompatActivity {
     }
 
     private boolean parseJSON(String json) {
-        try {
-            Gson gson = new Gson();
-            //Estudiante.setEstudiante(gson.fromJson(json, Estudiante.class));
-        }catch (IllegalStateException ex) {
-            ex.printStackTrace();
+
+        boolean indicador = false;
+
+        if (!json.equals("[]")){
+            try {
+                Gson gson = new Gson();
+                Estudiante.setEstudiante(gson.fromJson(json, Estudiante.class));
+                indicador = true;
+            }catch (IllegalStateException ex) {
+                ex.printStackTrace();
+                indicador = false;
+            }
         }
-
-        return true;
+        return indicador;
     }
-
 
     private boolean isValidNumber(String number) {
         return number == null || number.length() == 0;

@@ -1,6 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".ActMain">
 
     <LinearLayout
@@ -25,28 +26,41 @@
                 android:src="@drawable/logo_login"
                 android:layout_gravity="center_horizontal" />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="Carnet/Cedula"
-                android:ems="10"
-                style="@style/editText"
-                android:id="@+id/EditUsuario" />
+                android:hint="Estudiante"
+                android:text=""
+                android:textCursorDrawable="@drawable/text_cursor_cyan"
+                android:textSize="24sp"
+                app:met_baseColor="@android:color/black"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="20"
+                android:id="@+id/EditUsuario"
+                app:met_primaryColor="@color/color_4"
+                app:met_singleLineEllipsis="true" />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:ems="10"
                 android:hint="Password"
-                style="@style/editText"
-                android:id="@+id/EditPassword" />
+                android:text=""
+                android:textCursorDrawable="@drawable/text_cursor_cyan"
+                android:textSize="24sp"
+                android:inputType="textPassword"
+                app:met_baseColor="@android:color/black"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="20"
+                android:id="@+id/EditPassword"
+                app:met_primaryColor="@color/color_4"
+                app:met_singleLineEllipsis="true" />
+
 
             <com.gc.materialdesign.views.ButtonRectangle
                 android:id="@+id/btnIngresar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:background="@color/color_1"
                 android:text="INGRESAR"
                 android:layout_gravity="center_horizontal" />

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cerro Filas</string>
+    <string name="app_name">Cero Filas</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -11,4 +11,8 @@
 
 
     <string name="url_base">http://172.20.32.75/admin_cero_fila/services/</string>
+
+    <string name="next">Next</string>
+    <string name="close">Close</string>
+    <string name="title_activity_act_home">"Cero Filas "</string>
 </resources>
