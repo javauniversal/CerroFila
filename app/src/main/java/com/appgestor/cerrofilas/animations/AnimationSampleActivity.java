@@ -27,9 +27,7 @@ import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.Target;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
 
-/**
- * Created by Alex on 26/10/13.
- */
+
 public class AnimationSampleActivity extends Activity implements View.OnClickListener {
 
     private ShowcaseView showcaseView;
