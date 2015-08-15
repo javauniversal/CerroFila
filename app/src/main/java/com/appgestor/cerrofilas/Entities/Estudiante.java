@@ -31,7 +31,7 @@ public class Estudiante {
     private String tipoIdentificacion;
 
     @SerializedName("fechanacimiento")
-    private Date fechaNacimiento;
+    private String fechaNacimiento;
 
     @SerializedName("celular")
     private String celular;
@@ -111,11 +111,11 @@ public class Estudiante {
         this.tipoIdentificacion = tipoIdentificacion;
     }
 
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 

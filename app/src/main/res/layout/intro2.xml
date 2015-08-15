@@ -43,7 +43,7 @@
         android:gravity="center"
         android:textColor="#ffffff"
         android:paddingLeft="64dp"
-        android:text="La mejor aplicacion para reservar el turno en tu universidad."
+        android:text="La mejor aplicación para reservar el turno en tu universidad."
         android:paddingRight="64dp"
         android:id="@+id/otra"
         android:textSize="16sp"/>

@@ -9,8 +9,12 @@
     <string name="login_usuario">El usuario no puede estar vacío</string>
     <string name="login_password">El password no puede estar vacío</string>
 
+    <!-- URL BASE Trabajo-->
+    <!--<string name="url_base">http://172.20.32.75/admin_cero_fila/services/</string>-->
 
-    <string name="url_base">http://172.20.32.75/admin_cero_fila/services/</string>
+    <!-- URL BASE casa-->
+    <string name="url_base">http://appgestor.com/admin_cero_fila/services/</string>
+
 
     <string name="next">Next</string>
     <string name="close">Close</string>
