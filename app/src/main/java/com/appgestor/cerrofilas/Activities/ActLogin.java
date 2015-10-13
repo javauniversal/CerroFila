@@ -83,7 +83,7 @@ public class ActLogin extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // error
-                        Toast.makeText(ActLogin.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(ActLogin.this, "No tiene conexión a internet ", Toast.LENGTH_LONG).show();
                     }
                 }
         ) {
@@ -100,19 +100,19 @@ public class ActLogin extends AppCompatActivity {
 
     private boolean parseJSON(String json) {
 
-        boolean indicador = false;
+        boolean indicant = false;
 
         if (!json.equals("[]")){
             try {
                 Gson gson = new Gson();
                 Estudiante.setEstudiante(gson.fromJson(json, Estudiante.class));
-                indicador = true;
+                indicant = true;
             }catch (IllegalStateException ex) {
                 ex.printStackTrace();
-                indicador = false;
+                indicant = false;
             }
         }
-        return indicador;
+        return indicant;
     }
 
     private boolean isValidNumber(String number) {
