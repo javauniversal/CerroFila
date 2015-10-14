@@ -1,5 +1,7 @@
 package com.appgestor.cerrofilas.Activities;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -29,11 +31,16 @@ public class ActLogin extends AppCompatActivity {
     private MaterialEditText usuario;
     private MaterialEditText password;
     private Estudiante estudiante;
+    private ProgressDialog progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main);
+
+        progress = new ProgressDialog(this);
+        progress.setMessage("Cargando..");
+        progress.setCancelable(false);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -62,6 +69,9 @@ public class ActLogin extends AppCompatActivity {
     }
 
     private void ValidatorLogin() {
+
+        progress.show();
+
         String url = String.format("%1$s%2$s", getString(R.string.url_base),"ValidateLogin");
         RequestQueue rq = Volley.newRequestQueue(this);
 
@@ -84,6 +94,7 @@ public class ActLogin extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         // error
                         Toast.makeText(ActLogin.this, "No tiene conexión a internet ", Toast.LENGTH_LONG).show();
+                        progress.dismiss();
                     }
                 }
         ) {
@@ -112,6 +123,9 @@ public class ActLogin extends AppCompatActivity {
                 indicant = false;
             }
         }
+
+        progress.dismiss();
+
         return indicant;
     }
 
